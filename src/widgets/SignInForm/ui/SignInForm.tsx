@@ -15,11 +15,11 @@ import { toast } from 'react-toastify';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
+import { useSignInMutation } from '../../../features/Auth';
+import { userActions } from '../../../entities/user';
+import { getMessageFromError } from '../../../shared/utils';
 import { SignInFormValues } from '../utils/types';
 import { signInFormSchema } from '../utils/validator';
-import { useSignInMutation } from '../../../shared/store/api/authApi';
-import { userActions } from '../../../shared/store/slices/user';
-import { getMessageFromError } from '../../../shared/utils';
 
 export const SignInForm: FC = () => {
 	const dispatch = useDispatch();

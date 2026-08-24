@@ -6,7 +6,8 @@
 
 html,
 body {
-	scrollbar-gutter: stable;
+	height: 100%;
+	width: 100%;
 }
 
 html {
@@ -19,22 +20,11 @@ body {
 	font-family: 'Nunito', 'Arial', 'Helvetica', sans-serif;
 }
 
-.main {
-	flex: 1 1;
-}
-
-.container {
-	width: 95%;
-	max-width: 1024px;
-	margin: 0 auto;
-	padding-right: 16px;
-	padding-left: 16px;
-}
-
 #root {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	width: 100%;
 }
 
 img {

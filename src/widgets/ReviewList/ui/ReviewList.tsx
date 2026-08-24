@@ -6,6 +6,7 @@ import { ReviewForm } from './ReviewForm/ReviewForm';
 type ReviewListProps = {
 	product: Product;
 };
+
 export const ReviewList = ({ product }: ReviewListProps) => {
 	return (
 		<div className={classNames(s['product__reviews'])}>

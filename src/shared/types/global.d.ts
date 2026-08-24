@@ -71,6 +71,10 @@ declare global {
 		favoritesPost: FavoritePost[];
 	};
 
+	type ProfileFormValuesBase = Omit<BaseUser, 'id' | 'roles' | 'phone'>;
+
+	type ProfileFormValues = ProfileFormValuesBase & { password: string };
+
 	type LikeUser = BaseDates &
 		BaseUser & {
 			provider: null;
@@ -90,6 +94,7 @@ declare global {
 		isPublished: boolean;
 		stock: number;
 		tags: string[];
+		wight?: string;
 	};
 
 	type Product = BaseProduct & {

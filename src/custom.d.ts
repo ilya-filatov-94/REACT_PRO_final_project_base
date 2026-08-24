@@ -1,11 +1,15 @@
 declare module '*.svg' {
 	import React = require('react');
 	export const ReactComponent: React.FunctionComponent<
-		React.SVGProps<SVGSVGElement>
+		React.SVGProps<SVGSVGElement> & { title?: string }
 	>;
-	const src: string;
-	export default src;
+	export default ReactComponent;
 }
+declare module '*.svg?url' {
+	const content: string;
+	export default content;
+}
+
 declare module '*.png' {
 	const content: any;
 	export default content;
@@ -18,6 +22,8 @@ declare module '*.json' {
 	const content: any;
 	export default content;
 }
+
+declare module '*.css';
 
 declare module '*.module.css' {
 	const classes: { [key: string]: string };
