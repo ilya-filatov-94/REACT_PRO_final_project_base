@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
-import { userSelectors } from '../../../entities/user';
-import { useAppSelector } from '../../../shared/store/utils';
-import { isLiked } from '../../../shared/utils';
+import { userSelectors } from 'entities/user';
+import { useAppSelector } from 'shared/store/utils';
+import { isLiked } from 'shared/utils';
 import { productsSelectors } from '../model/slice';
 import { useGetProductsQuery } from '../api/productsApi';
 

@@ -1,4 +1,4 @@
-import Star from '../../../assets/icons/star.svg';
+import Star from '../../../assets/icons/star.svg?react';
 
 type TRating = {
 	rating?: number;

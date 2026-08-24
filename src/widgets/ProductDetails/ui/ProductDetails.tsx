@@ -1,11 +1,12 @@
 import { memo } from 'react';
 import classNames from 'classnames';
-import truckSVG from '../../../shared/assets/icons/truck.svg?url';
-import qualitySVG from '../../../shared/assets/icons/quality.svg?url';
-import { Price } from '../../../shared/ui/Price';
-import { Rating } from '../../../shared/ui/Rating';
-import { LikeButton } from '../../../features/LikeButton';
-import { ProductCartControls } from '../../../features/Cart';
+import truckSVG from 'shared/assets/icons/truck.svg?url';
+import qualitySVG from 'shared/assets/icons/quality.svg?url';
+import { Price } from 'shared/ui/Price';
+import { Rating } from 'shared/ui/Rating';
+import { LikeButton } from 'features/LikeButton';
+import { ProductCartControls } from 'features/Cart';
+import { ImageWithFallback } from 'shared/ui/ImageWithFallback';
 import s from './ProductDetails.module.css';
 
 type ProductDetailsProps = {
@@ -24,14 +25,14 @@ export const ProductDetails = memo(({ product }: ProductDetailsProps) => {
 			<Rating rating={3} />
 			<div className={classNames(s['product'])}>
 				<div className={classNames(s['product__img-wrapper'])}>
-					<img src={images} alt={description} />
+					<ImageWithFallback src={images} alt={description} loading='lazy' />
 				</div>
 				<div className={classNames(s['product__desc'])}>
 					<Price price={price} discountPrice={discount} />
 					<ProductCartControls product={product} />
 					<LikeButton product={product} />
 					<div className={classNames(s['product__delivery'])}>
-						<img src={truckSVG} alt='truck' />
+						<ImageWithFallback src={truckSVG} alt='truck' loading='lazy' />
 						<div className={classNames(s['product__right'])}>
 							<h3 className={classNames(s['product__name'])}>
 								Доставка по всему Миру!
@@ -49,7 +50,7 @@ export const ProductDetails = memo(({ product }: ProductDetailsProps) => {
 						</div>
 					</div>
 					<div className={classNames(s['product__delivery'])}>
-						<img src={qualitySVG} alt='quality' />
+						<ImageWithFallback src={qualitySVG} alt='quality' loading='lazy' />
 						<div className={classNames(s['product__right'])}>
 							<h3 className={classNames(s['product__name'])}>
 								Гарантия качества

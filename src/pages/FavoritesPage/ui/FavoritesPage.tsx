@@ -1,7 +1,7 @@
-import { WithQuery } from '../../../shared/api/HOCs/WithQuery';
-import { useProducts } from '../../../entities/product';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { CardList } from '../../../widgets/CardList';
+import { CardList } from 'widgets/CardList';
+import { useProducts } from 'entities/product';
+import { WithQuery } from 'shared/api/HOCs/WithQuery';
+import { ButtonBack } from 'shared/ui/ButtonBack';
 
 const CardListWithQuery = WithQuery(CardList);
 

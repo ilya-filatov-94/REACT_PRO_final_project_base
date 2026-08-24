@@ -1,9 +1,9 @@
 import { Alert, CircularProgress } from '@mui/material';
-import { useGetUserQuery } from '../../../entities/user';
-import { ProfileForm } from '../../../features/ProfileForm';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { Button } from '../../../shared/ui/Button';
-import { getMessageFromError } from '../../../shared/utils';
+import { useGetUserQuery } from 'entities/user';
+import { ProfileForm } from 'features/ProfileForm';
+import { ButtonBack } from 'shared/ui/ButtonBack';
+import { Button } from 'shared/ui/Button';
+import { getMessageFromError } from 'shared/utils';
 
 export const ProfilePage = () => {
 	const {

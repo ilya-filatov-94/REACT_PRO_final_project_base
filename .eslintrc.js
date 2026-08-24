@@ -10,6 +10,15 @@ module.exports = {
 			version: 'detect',
 		},
 	},
+	'import/resolver': {
+		typescript: {
+			alwaysTryTypes: true,
+			project: './tsconfig.json',
+		},
+		node: {
+			extensions: ['.js', '.jsx', '.ts', '.tsx'],
+		},
+	},
 	extends: [
 		'plugin:@typescript-eslint/recommended',
 		'plugin:prettier/recommended',

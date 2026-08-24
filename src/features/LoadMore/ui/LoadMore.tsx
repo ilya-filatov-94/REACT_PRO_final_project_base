@@ -1,5 +1,5 @@
-import { Alert, CircularProgress, Stack } from '@mui/material';
 import { useRef } from 'react';
+import { Alert, CircularProgress, Stack } from '@mui/material';
 import { useLoadMore } from '../hooks/useLoadMore';
 
 export const LoadMore = () => {

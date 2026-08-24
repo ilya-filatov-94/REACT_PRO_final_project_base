@@ -1,6 +1,6 @@
+import { useAppSelector } from 'shared/store/utils';
 import { ProductCartCounter } from '../ProductCartCounter/ProductCartCounter';
 import { CartCounter } from '../CartCounter/CartCounter';
-import { useAppSelector } from '../../../../shared/store/utils';
 import { cartSelectors } from '../../model/slice';
 
 type CartItemProps = {

@@ -1,4 +1,4 @@
-import { SignUpForm } from '../../../widgets/SignUpForm';
+import { SignUpForm } from 'widgets/SignUpForm';
 
 export const SignUpPage = () => {
 	return <SignUpForm />;

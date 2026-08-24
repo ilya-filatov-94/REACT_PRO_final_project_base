@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../../shared/store/utils';
-import { productsActions, productsSelectors } from '../../../entities/product';
+import { useAppDispatch, useAppSelector } from 'shared/store/utils';
+import { productsActions, productsSelectors } from 'entities/product';
 
 interface SortParams {
 	title: string;

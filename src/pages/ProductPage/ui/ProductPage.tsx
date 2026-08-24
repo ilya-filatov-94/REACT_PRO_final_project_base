@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { ReviewList } from '../../../widgets/ReviewList';
-import { ProductDetails } from '../../../widgets/ProductDetails';
-import { ProductInfo } from '../../../widgets/ProductInfo';
-import { useGetProductQuery } from '../../../entities/product';
+import { ReviewList } from 'widgets/ReviewList';
+import { ProductDetails } from 'widgets/ProductDetails';
+import { ProductInfo } from 'widgets/ProductInfo';
+import { useGetProductQuery } from 'entities/product';
+import { ButtonBack } from 'shared/ui/ButtonBack';
 
 export const ProductPage = () => {
 	const { productId = '' } = useParams<{ productId: string }>();

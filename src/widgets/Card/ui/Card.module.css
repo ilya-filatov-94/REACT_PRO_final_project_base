@@ -6,8 +6,6 @@
 	width: 236px;
 	padding: 10px;
 	border-radius: 10px;
-
-	/* height: 359px; */
 }
 
 .card:hover {
@@ -87,11 +85,13 @@
 .card__sticky_type_top-left {
 	top: 0;
 	left: 0;
+	z-index: 100;
 }
 
 .card__sticky_type_top-right {
 	top: 0;
 	right: 0;
+	z-index: 100;
 }
 
 .card__cart {

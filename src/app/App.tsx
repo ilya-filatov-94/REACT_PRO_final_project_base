@@ -1,8 +1,8 @@
 import './styles/normalize.css';
 import './styles/styles.css';
 import { Outlet } from 'react-router-dom';
-import { Header } from '../widgets/Header';
-import { Footer } from '../widgets/Footer';
+import { Header } from 'widgets/Header';
+import { Footer } from 'widgets/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './app.module.css';

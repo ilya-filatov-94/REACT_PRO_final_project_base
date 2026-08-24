@@ -14,9 +14,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { userActions } from '../../../entities/user';
-import { getMessageFromError } from '../../../shared/utils';
-import { useSignUpMutation } from '../../../features/Auth';
+import { userActions } from 'entities/user';
+import { getMessageFromError } from 'shared/utils';
+import { useSignUpMutation } from 'features/Auth';
 import { SignUpFormValues } from '../utils/types';
 import { signUpFormSchema } from '../utils/validator';
 

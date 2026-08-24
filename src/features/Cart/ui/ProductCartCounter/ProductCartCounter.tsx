@@ -1,7 +1,7 @@
-import s from './ProductCartCounter.module.css';
 import classNames from 'classnames';
+import { useAddToCart } from 'features/Cart';
 import { useProductQuantity } from '../../hooks/useProductQuantity ';
-import { useAddToCart } from '../../../../features/Cart';
+import s from './ProductCartCounter.module.css';
 
 type ProductCartCounterProps = {
 	product: Product;

@@ -1,16 +1,16 @@
 import classNames from 'classnames';
 import s from './Header.module.css';
-import { Logo } from '../../../shared/ui/Logo';
-import { Search } from '../../../features/Search';
+import { Logo } from 'shared/ui/Logo';
+import { Search } from 'features/Search';
 import { Link } from 'react-router-dom';
-import { useAppSelector } from '../../../shared/store/utils';
-import { userSelectors } from '../../../entities/user';
-import { isLiked } from '../../../shared/utils';
-import { useProducts } from '../../../entities/product';
-import { cartSelectors } from '../../../features/Cart';
-import LikeIcon from '../../../shared/assets/icons/like.svg';
-import CartIcon from '../../../shared/assets/icons/cartIcon.svg';
-import UserIcon from '../../../shared/assets/icons/userIcon.svg';
+import { useAppSelector } from 'shared/store/utils';
+import { userSelectors } from 'entities/user';
+import { isLiked } from 'shared/utils';
+import { useProducts } from 'entities/product';
+import { cartSelectors } from 'features/Cart';
+import LikeIcon from 'shared/assets/icons/like.svg?react';
+import CartIcon from 'shared/assets/icons/cartIcon.svg?react';
+import UserIcon from 'shared/assets/icons/userIcon.svg?react';
 
 export const Header = () => {
 	const { products } = useProducts();

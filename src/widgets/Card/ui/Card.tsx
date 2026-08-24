@@ -1,15 +1,12 @@
 import { memo } from 'react';
-import classNames from 'classnames';
-import s from './Card.module.css';
-import { Price } from '../../../shared/ui/Price';
 import { Link } from 'react-router-dom';
-import { LikeButton } from '../../../features/LikeButton';
-import { useAppSelector } from '../../../shared/store/utils';
-import {
-	CartCounter,
-	cartSelectors,
-	useAddToCart,
-} from '../../../features/Cart';
+import classNames from 'classnames';
+import { LikeButton } from 'features/LikeButton';
+import { CartCounter, cartSelectors, useAddToCart } from 'features/Cart';
+import { useAppSelector } from 'shared/store/utils';
+import { Price } from 'shared/ui/Price';
+import { ImageWithFallback } from 'shared/ui/ImageWithFallback';
+import s from './Card.module.css';
 
 type CardProps = {
 	product: Product;
@@ -44,7 +41,7 @@ export const Card = memo(({ product }: CardProps) => {
 				<LikeButton product={product} />
 			</div>
 			<Link className={s['card__link']} to={`/products/${id}`}>
-				<img
+				<ImageWithFallback
 					src={images}
 					alt={name}
 					className={s['card__image']}

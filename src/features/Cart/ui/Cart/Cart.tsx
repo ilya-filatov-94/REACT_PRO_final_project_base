@@ -1,11 +1,12 @@
 import { memo } from 'react';
 import { Link } from 'react-router-dom';
-import TrashIcon from '../../../../shared/assets/icons/trash.svg';
-import s from './Cart.module.css';
 import classNames from 'classnames';
 import { useDispatch } from 'react-redux';
+import TrashIcon from 'shared/assets/icons/trash.svg?react';
+import { ImageWithFallback } from 'shared/ui/ImageWithFallback';
 import { cartActions } from '../../model/slice';
 import { CartCounter } from '../CartCounter/CartCounter';
+import s from './Cart.module.css';
 
 type CartItemProps = {
 	product: CartProduct;
@@ -21,12 +22,12 @@ export const Cart = memo(({ product }: CartItemProps) => {
 	return (
 		<div className={classNames(s['cart-item'])}>
 			<div className={classNames(s['cart-item__desc'])}>
-				<img
+				<ImageWithFallback
 					src={images}
 					alt={name}
 					className={classNames(s['cart-item__image'])}
+					loading='lazy'
 				/>
-
 				<div style={{ display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
 					<div style={{ display: 'flex', gap: '20px', flexGrow: 1 }}>
 						<Link

@@ -1,6 +1,6 @@
-import s from './Input.module.css';
-import classNames from 'classnames';
 import { forwardRef } from 'react';
+import classNames from 'classnames';
+import s from './Input.module.css';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
 	label?: string;

@@ -1,16 +1,15 @@
 import { useMemo } from 'react';
-import classNames from 'classnames';
-import { toast } from 'react-toastify';
-import { Input } from '../../../shared/ui/Input';
-import { Button } from '../../../shared/ui/Button';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
+import { toast } from 'react-toastify';
+import { Input } from 'shared/ui/Input';
+import { Button } from 'shared/ui/Button';
+import { useUpdateUserMutation, userActions } from 'entities/user';
+import { getMessageFromError } from 'shared/utils';
 import { ProfileFormSchema } from '../model/validator';
 import { getDefaultValues } from '../model/utils';
-import { useUpdateUserMutation, userActions } from '../../../entities/user';
-import { getMessageFromError } from '../../../shared/utils';
-
 import s from './ProfileForm.module.css';
 
 type ProfileFormProps = {

@@ -1,11 +1,12 @@
 import classNames from 'classnames';
-import Instagram from '../../../shared/assets/images/instagram.svg?url';
-import Telegram from '../../../shared/assets/images/telegram.svg?url';
-import Viber from '../../../shared/assets/images/viber.svg?url';
-import Vk from '../../../shared/assets/images/vk.svg?url';
-import Whatsapp from '../../../shared/assets/images/whatsapp.svg?url';
+import Instagram from 'shared/assets/images/instagram.svg?url';
+import Telegram from 'shared/assets/images/telegram.svg?url';
+import Viber from 'shared/assets/images/viber.svg?url';
+import Vk from 'shared/assets/images/vk.svg?url';
+import Whatsapp from 'shared/assets/images/whatsapp.svg?url';
+import { Logo } from 'shared/ui/Logo';
+import { ImageWithFallback } from 'shared/ui/ImageWithFallback';
 import s from './Footer.module.css';
-import { Logo } from '../../../shared/ui/Logo';
 
 export const Footer = () => {
 	return (
@@ -66,27 +67,39 @@ export const Footer = () => {
 							<ul className={classNames(s['socials'])}>
 								<li>
 									<a className={s['socials__link']} href='/#'>
-										<img src={Telegram} alt='telegram' />
+										<ImageWithFallback
+											src={Telegram}
+											alt='telegram'
+											loading='lazy'
+										/>
 									</a>
 								</li>
 								<li>
 									<a className={s['socials__link']} href='/#'>
-										<img src={Whatsapp} alt='whatsapp' />
+										<ImageWithFallback
+											src={Whatsapp}
+											alt='whatsapp'
+											loading='lazy'
+										/>
 									</a>
 								</li>
 								<li>
 									<a className={s['socials__link']} href='/#'>
-										<img src={Viber} alt='viber' />
+										<ImageWithFallback src={Viber} alt='viber' loading='lazy' />
 									</a>
 								</li>
 								<li>
 									<a className={s['socials__link']} href='/#'>
-										<img src={Instagram} alt='instagram' />
+										<ImageWithFallback
+											src={Instagram}
+											alt='instagram'
+											loading='lazy'
+										/>
 									</a>
 								</li>
 								<li>
 									<a className={s['socials__link']} href='/#'>
-										<img src={Vk} alt='vk' />
+										<ImageWithFallback src={Vk} alt='vk' loading='lazy' />
 									</a>
 								</li>
 							</ul>

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Rating } from '../../../shared/ui/Rating';
+import { Rating } from 'shared/ui/Rating';
 import s from './ReviewCard.module.css';
 
 type ReviewCardProps = {

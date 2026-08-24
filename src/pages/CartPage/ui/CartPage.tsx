@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { useAppSelector } from '../../../shared/store/utils';
-import { cartSelectors, CartList, CartAmount } from '../../../features/Cart';
+import { cartSelectors, CartList, CartAmount } from 'features/Cart';
+import { useAppSelector } from 'shared/store/utils';
 import s from './CartPage.module.css';
 
 export const CartPage = () => {

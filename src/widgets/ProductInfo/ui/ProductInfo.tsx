@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import classNames from 'classnames';
-import s from './ProductInfo.module.css';
 import { configInfo } from '../model/config';
+import s from './ProductInfo.module.css';
 
 type ProductInfoProps = {
 	product: Product;

@@ -1,6 +1,6 @@
 import { memo, useMemo, useCallback } from 'react';
 import classNames from 'classnames';
-import { useAppSelector } from '../../../../shared/store/utils';
+import { useAppSelector } from 'shared/store/utils';
 import { cartSelectors } from '../../model';
 import s from './CartAmount.module.css';
 

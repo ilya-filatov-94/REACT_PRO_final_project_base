@@ -1,3 +1,4 @@
+import { FC, ComponentType } from 'react';
 import {
 	Alert,
 	AlertTitle,
@@ -6,7 +7,6 @@ import {
 	CircularProgress,
 	Container,
 } from '@mui/material';
-import { FC, ComponentType } from 'react';
 import { getMessageFromError } from '../../utils';
 import { SerializedError } from '@reduxjs/toolkit';
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import { Cart } from '../Cart/Cart';
-import { useAppSelector } from '../../../../shared/store/utils';
+import { useAppSelector } from 'shared/store/utils';
 import { cartSelectors } from '../../model';
+import { Cart } from '../Cart/Cart';
 import s from './CartList.module.css';
 
 export const CartList = () => {

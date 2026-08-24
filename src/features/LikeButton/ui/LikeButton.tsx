@@ -1,15 +1,15 @@
 import { memo } from 'react';
-import s from './LikeButton.module.css';
-import LikeSvg from '../../../shared/assets/icons/like.svg';
+import { toast } from 'react-toastify';
 import classNames from 'classnames';
-import { useAppSelector } from '../../../shared/store/utils';
-import { userSelectors } from '../../../entities/user';
+import LikeSvg from 'shared/assets/icons/like.svg?react';
+import { useAppSelector } from 'shared/store/utils';
+import { userSelectors } from 'entities/user';
 import {
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
 	type IErrorResponse,
-} from '../../../entities/product';
-import { toast } from 'react-toastify';
+} from 'entities/product';
+import s from './LikeButton.module.css';
 
 type TLikeButtonProps = {
 	product: Product;

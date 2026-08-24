@@ -1,8 +1,8 @@
-import { WithQuery } from '../../../shared/api/HOCs/WithQuery';
-import { Sort } from '../../../features/Sort';
-import { LoadMore } from '../../../features/LoadMore';
-import { CardList } from '../../../widgets/CardList';
-import { useProducts } from '../../../entities/product';
+import { CardList } from 'widgets/CardList';
+import { Sort } from 'features/Sort';
+import { LoadMore } from 'features/LoadMore';
+import { useProducts } from 'entities/product';
+import { WithQuery } from 'shared/api/HOCs/WithQuery';
 
 const CardListWithQuery = WithQuery(CardList);
 
