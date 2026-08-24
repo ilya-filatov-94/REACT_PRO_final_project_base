@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Link } from 'react-router-dom';
 import TrashIcon from '../../../../shared/assets/icons/trash.svg';
 import s from './Cart.module.css';
@@ -10,7 +11,7 @@ type CartItemProps = {
 	product: CartProduct;
 };
 
-export const Cart = ({ product }: CartItemProps) => {
+export const Cart = memo(({ product }: CartItemProps) => {
 	const dispatch = useDispatch();
 	const { id, name, images, price, discount } = product;
 
@@ -57,4 +58,6 @@ export const Cart = ({ product }: CartItemProps) => {
 			</div>
 		</div>
 	);
-};
+});
+
+Cart.displayName = 'Cart'; // для ESLint

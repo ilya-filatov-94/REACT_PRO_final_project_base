@@ -8,7 +8,8 @@ export const Sort = () => {
 		setSort(newSort);
 	};
 	return (
-		<div style={{ width: '100%' }}>
+		<div style={{ width: '100%', padding: '5px 0' }}>
+			<span>Фильтр товаров:</span>
 			<select
 				style={{ width: '100%' }}
 				value={sort}

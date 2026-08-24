@@ -7,6 +7,29 @@ interface SortParams {
 	href: string;
 }
 
+const SORT_PARAMS: SortParams[] = [
+	{
+		title: 'Дешевые',
+		value: 'low-price',
+		href: '#',
+	},
+	{
+		title: 'Дорогие',
+		value: 'high-price',
+		href: '#',
+	},
+	{
+		title: 'Новые',
+		value: 'newest',
+		href: '#',
+	},
+	{
+		title: 'Старые',
+		value: 'oldest',
+		href: '#',
+	},
+];
+
 export const useSort = () => {
 	const dispatch = useAppDispatch();
 
@@ -16,27 +39,5 @@ export const useSort = () => {
 		dispatch(productsActions.setSort(newSort));
 	};
 
-	const sortParams: SortParams[] = [
-		{
-			title: 'Дешевые',
-			value: 'low-price',
-			href: '#',
-		},
-		{
-			title: 'Дорогие',
-			value: 'high-price',
-			href: '#',
-		},
-		{
-			title: 'Новые',
-			value: 'newest',
-			href: '#',
-		},
-		{
-			title: 'Старые',
-			value: 'oldest',
-			href: '#',
-		},
-	];
-	return { sort, setSort, sortParams };
+	return { sort, setSort, sortParams: SORT_PARAMS };
 };

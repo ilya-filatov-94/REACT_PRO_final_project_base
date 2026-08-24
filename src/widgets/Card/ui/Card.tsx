@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import classNames from 'classnames';
 import s from './Card.module.css';
 import { Price } from '../../../shared/ui/Price';
@@ -14,7 +15,7 @@ type CardProps = {
 	product: Product;
 };
 
-export const Card = ({ product }: CardProps) => {
+export const Card = memo(({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
 	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
 	const isProductInCart = cartProducts.some((p) => p.id === id);
@@ -70,4 +71,6 @@ export const Card = ({ product }: CardProps) => {
 			)}
 		</article>
 	);
-};
+});
+
+Card.displayName = 'Card'; // для ESLint, который не видит у завёрнутых в React.memo

@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import s from './LikeButton.module.css';
 import LikeSvg from '../../../shared/assets/icons/like.svg';
 import classNames from 'classnames';
@@ -14,7 +15,7 @@ type TLikeButtonProps = {
 	product: Product;
 };
 
-export const LikeButton = ({ product }: TLikeButtonProps) => {
+export const LikeButton = memo(({ product }: TLikeButtonProps) => {
 	const accessToken = useAppSelector(userSelectors.getAccessToken);
 	const user = useAppSelector(userSelectors.getUser);
 
@@ -50,4 +51,6 @@ export const LikeButton = ({ product }: TLikeButtonProps) => {
 			<LikeSvg />
 		</button>
 	);
-};
+});
+
+LikeButton.displayName = 'LikeButton'; // для ESLint

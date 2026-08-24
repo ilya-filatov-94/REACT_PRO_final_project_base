@@ -1,20 +1,22 @@
+import { memo, useMemo, useCallback } from 'react';
 import classNames from 'classnames';
 import { useAppSelector } from '../../../../shared/store/utils';
 import { cartSelectors } from '../../model';
 import s from './CartAmount.module.css';
 
-export const CartAmount = () => {
+export const CartAmount = memo(() => {
 	const products = useAppSelector(cartSelectors.getCartProducts);
-	const allPrice = products.reduce((acc, p) => p.price * p.count + acc, 0);
-	const allDiscount = products.reduce(
-		(acc, p) => p.discount * p.count + acc,
-		0
-	);
 
-	const handleSubmitCart = () => {
+	const { allPrice, allDiscount } = useMemo(() => {
+		const price = products.reduce((acc, p) => p.price * p.count + acc, 0);
+		const discount = products.reduce((acc, p) => p.discount * p.count + acc, 0);
+		return { allPrice: price, allDiscount: discount };
+	}, [products]);
+
+	const handleSubmitCart = useCallback(() => {
 		const order = products.map((p) => ({ id: p.id, count: p.count }));
 		console.log('Отправка заказа на сервер: ', JSON.stringify(order, null, 2));
-	};
+	}, [products]);
 
 	return (
 		<div className={classNames(s['cart-amount'])}>
@@ -60,4 +62,6 @@ export const CartAmount = () => {
 			</button>
 		</div>
 	);
-};
+});
+
+CartAmount.displayName = 'CartAmount'; // для ESLint, который не видит у завёрнутых в React.memo

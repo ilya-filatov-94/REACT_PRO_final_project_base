@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { Sort } from '../../../features/Sort';
 import { ReviewList } from '../../../widgets/ReviewList';
 import { ProductDetails } from '../../../widgets/ProductDetails';
 import { ProductInfo } from '../../../widgets/ProductInfo';
@@ -21,7 +20,6 @@ export const ProductPage = () => {
 	return (
 		<>
 			<ButtonBack />
-			<Sort />
 			<ProductDetails product={product} />
 			<ProductInfo product={product} />
 			<ReviewList product={product} />

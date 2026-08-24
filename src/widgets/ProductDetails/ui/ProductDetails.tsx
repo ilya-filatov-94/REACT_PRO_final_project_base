@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import classNames from 'classnames';
 import truckSVG from '../../../shared/assets/icons/truck.svg?url';
 import qualitySVG from '../../../shared/assets/icons/quality.svg?url';
@@ -11,7 +12,7 @@ type ProductDetailsProps = {
 	product: Product;
 };
 
-export const ProductDetails = ({ product }: ProductDetailsProps) => {
+export const ProductDetails = memo(({ product }: ProductDetailsProps) => {
 	const { name, images, description, price, discount } = product;
 
 	return (
@@ -27,9 +28,7 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 				</div>
 				<div className={classNames(s['product__desc'])}>
 					<Price price={price} discountPrice={discount} />
-
 					<ProductCartControls product={product} />
-
 					<LikeButton product={product} />
 					<div className={classNames(s['product__delivery'])}>
 						<img src={truckSVG} alt='truck' />
@@ -66,4 +65,6 @@ export const ProductDetails = ({ product }: ProductDetailsProps) => {
 			</div>
 		</>
 	);
-};
+});
+
+ProductDetails.displayName = 'ProductDetails'; // для ESLint
