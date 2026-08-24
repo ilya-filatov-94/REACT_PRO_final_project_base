@@ -54,6 +54,7 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc --noEmit && vite build",
+		"check:bundleSize": "vite build --mode analyze",
 		"preview": "vite preview",
 		"stylelint": "stylelint \"src/**/*.css\"",
 		"stylelint:fix": "stylelint \"src/**/*.css\" --fix",
