@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { type FC, useRef, useEffect } from 'react';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {
@@ -43,6 +43,13 @@ export const SignUpForm: FC = () => {
 		// валидации, мы используем yup
 		resolver: yupResolver(signUpFormSchema),
 	});
+	const emailInputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		if (emailInputRef.current) {
+			emailInputRef.current.focus();
+		}
+	}, []);
 
 	const submitHandler: SubmitHandler<SignUpFormValues> = async (values) => {
 		try {
@@ -101,6 +108,7 @@ export const SignUpForm: FC = () => {
 						control={control}
 						render={({ field }) => (
 							<TextField
+								inputRef={emailInputRef}
 								margin='normal'
 								label='Email Address'
 								type='email'

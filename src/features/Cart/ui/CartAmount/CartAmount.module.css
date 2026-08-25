@@ -77,6 +77,10 @@
 	cursor: pointer;
 }
 
+.button:focus {
+	border: 2px solid #ffaa0d;
+}
+
 .button_type_primary {
 	background-color: #ffe44d;
 }

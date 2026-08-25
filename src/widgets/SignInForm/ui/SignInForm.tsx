@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { type FC, useEffect, useRef } from 'react';
 import {
 	Avatar,
 	Box,
@@ -45,6 +45,13 @@ export const SignInForm: FC = () => {
 		// валидации, мы используем yup
 		resolver: yupResolver(signInFormSchema),
 	});
+	const emailInputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		if (emailInputRef.current) {
+			emailInputRef.current.focus();
+		}
+	}, []);
 
 	const submitHandler: SubmitHandler<SignInFormValues> = async (values) => {
 		try {
@@ -107,6 +114,7 @@ export const SignInForm: FC = () => {
 						control={control}
 						render={({ field }) => (
 							<TextField
+								inputRef={emailInputRef}
 								margin='normal'
 								label='Email Address'
 								type='email'
