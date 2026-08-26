@@ -2,9 +2,9 @@
 
 ## Запуск:
 
-npm ci && npm run dev
-npm run build
-npm run lint
+- npm ci && npm run dev
+- npm run build
+- npm run lint
 
 ## Чеклист
 
