@@ -110,6 +110,12 @@ declare global {
 		wight: string;
 	};
 
+	type ReviewBody = {
+		productId: string;
+		rating: number;
+		text: string;
+	};
+
 	type CartProduct = Product & {
 		count: number;
 	};

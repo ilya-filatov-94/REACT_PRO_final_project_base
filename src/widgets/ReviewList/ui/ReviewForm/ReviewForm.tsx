@@ -3,7 +3,15 @@ import classNames from 'classnames';
 import { Rating } from 'shared/ui/Rating';
 import s from './ReviewForm.module.css';
 
-export const ReviewForm = () => {
+type ReviewFormProps = {
+	onSubmit: (data: { text: string; rating: number }) => void;
+	isSubmitting?: boolean;
+};
+
+export const ReviewForm = ({
+	onSubmit,
+	isSubmitting = false,
+}: ReviewFormProps) => {
 	const [reviewText, setReviewText] = useState('');
 	const [rating, setRating] = useState(0);
 
@@ -11,12 +19,18 @@ export const ReviewForm = () => {
 		setReviewText(e.target.value);
 	};
 
-	const handleClick = () => {
-		console.log('Отправка: ', { reviewText, rating });
+	const handleSubmit = (e: ChangeEvent) => {
+		e.preventDefault();
+		if (!reviewText.trim() || rating === 0) {
+			return;
+		}
+		onSubmit({ text: reviewText, rating });
+		setReviewText('');
+		setRating(0);
 	};
 
 	return (
-		<form className={s['form']}>
+		<form className={s['form']} onSubmit={handleSubmit}>
 			<Rating isEdit rating={rating} onChange={setRating} />
 			<textarea
 				className={classNames(s['input'], s['textarea'])}
@@ -24,12 +38,13 @@ export const ReviewForm = () => {
 				id='text'
 				placeholder='Напишите текст отзыва'
 				value={reviewText}
-				onChange={handleChange}></textarea>
+				onChange={handleChange}
+			/>
 			<button
 				type='submit'
 				className={classNames(s['form__btn'], s['pramary'])}
-				onClick={handleClick}>
-				Отправить отзыв
+				disabled={isSubmitting}>
+				{isSubmitting ? 'Отправка...' : 'Отправить отзыв'}
 			</button>
 		</form>
 	);

@@ -1,25 +1,46 @@
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-
-import { HomePage } from 'pages/HomePage';
-import { ProductPage } from 'pages/ProductPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-import { ProfilePage } from 'pages/ProfilePage';
-import { FavoritesPage } from 'pages/FavoritesPage';
 import { SignUpPage } from 'pages/SignUpPage';
 import { SignInPage } from 'pages/SignInPage';
-import { CartPage } from 'pages/CartPage';
 import { App } from '../../../app';
 import { WithProtection } from '../../providers/auth/WithProtection';
 import { RoutePath } from './model';
 
+const HomePage = lazy(() =>
+	import('pages/HomePage').then((module) => ({ default: module.HomePage }))
+);
 const HomePageWithProtection = WithProtection(HomePage);
+
+const FavoritesPage = lazy(() =>
+	import('pages/FavoritesPage').then((module) => ({
+		default: module.FavoritesPage,
+	}))
+);
 const FavoritesPageWithProtection = WithProtection(FavoritesPage);
+
+const ProductPage = lazy(() =>
+	import('pages/ProductPage').then((module) => ({
+		default: module.ProductPage,
+	}))
+);
 const ProductPageWithProtection = WithProtection(ProductPage);
+
+const ProfilePage = lazy(() =>
+	import('pages/ProfilePage').then((module) => ({
+		default: module.ProfilePage,
+	}))
+);
 const ProfilePageWithProtection = WithProtection(ProfilePage);
+
+const CartPage = lazy(() =>
+	import('pages/CartPage').then((module) => ({
+		default: module.CartPage,
+	}))
+);
 
 export const router = createBrowserRouter([
 	{
-		// Основной layout для большинства страниц
 		path: '/',
 		element: <App />,
 		children: [
@@ -45,7 +66,6 @@ export const router = createBrowserRouter([
 			},
 		],
 	},
-	// Страницы аутентификации без общего layout
 	{
 		path: RoutePath.signin,
 		element: <SignInPage />,
@@ -54,7 +74,6 @@ export const router = createBrowserRouter([
 		path: RoutePath.signup,
 		element: <SignUpPage />,
 	},
-	// Страница 404 вне layout
 	{
 		path: '*',
 		element: <NotFoundPage />,

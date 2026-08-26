@@ -10,9 +10,9 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import LoadingButton from '@mui/lab/LoadingButton';
 import { toast } from 'react-toastify';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { LoadingButton } from 'shared/ui/LoadingButton';
 
 import { useDispatch } from 'react-redux';
 import { useSignInMutation } from 'features/Auth';

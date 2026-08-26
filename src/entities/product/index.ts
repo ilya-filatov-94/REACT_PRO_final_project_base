@@ -3,6 +3,7 @@ export {
 	useGetProductsQuery,
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
+	useCreateReviewProductMutation,
 	productsApi,
 	type IErrorResponse,
 } from './api/productsApi';

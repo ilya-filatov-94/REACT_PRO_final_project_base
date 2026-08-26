@@ -1,3 +1,5 @@
+import { Suspense } from 'react';
+import CircularProgress from '@mui/material/CircularProgress';
 import './styles/normalize.css';
 import './styles/styles.css';
 import { Outlet } from 'react-router-dom';
@@ -15,7 +17,9 @@ export const App = () => {
 					<Header />
 				</header>
 				<main className={styles.main}>
-					<Outlet />
+					<Suspense fallback={<CircularProgress aria-label='Loading…' />}>
+						<Outlet />
+					</Suspense>
 				</main>
 				<footer className={styles.footer}>
 					<Footer />

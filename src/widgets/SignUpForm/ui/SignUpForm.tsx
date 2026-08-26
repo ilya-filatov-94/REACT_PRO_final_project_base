@@ -9,13 +9,13 @@ import {
 	TextField,
 	Typography,
 } from '@mui/material';
-import LoadingButton from '@mui/lab/LoadingButton';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { userActions } from 'entities/user';
 import { getMessageFromError } from 'shared/utils';
+import { LoadingButton } from 'shared/ui/LoadingButton';
 import { useSignUpMutation } from 'features/Auth';
 import { SignUpFormValues } from '../utils/types';
 import { signUpFormSchema } from '../utils/validator';

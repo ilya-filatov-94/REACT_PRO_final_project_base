@@ -101,6 +101,17 @@ export const productsApi = createApi({
 				{ type: 'Products', id: productFromBE?.product.productId },
 			],
 		}),
+		createReviewProduct: builder.mutation<Review, ReviewBody>({
+			query: (review) => ({
+				url: `/reviews/leave/${review.productId}`,
+				method: 'POST',
+				body: review,
+			}),
+			invalidatesTags: (_result, _error, arg) => [
+				{ type: 'Products', id: arg.productId },
+				{ type: 'Products', id: 'list' },
+			],
+		}),
 	}),
 });
 
@@ -109,4 +120,5 @@ export const {
 	useGetProductsQuery,
 	useSetLikeProductMutation,
 	useDeleteLikeProductMutation,
+	useCreateReviewProductMutation,
 } = productsApi;
