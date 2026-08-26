@@ -45,7 +45,9 @@
 - [x] Создан альтернативный сборочный конфиг: vite.config.js с SWC (@vitejs/plugin-react-swc)
 - [x] Для сравнения характеристик сборок:
 - для webpack использовался webpack-bundle-analyzer: 1.79 Mb, время: 18.4s
+  ![Скриншот сборки webpack](./time_buld_webpack.jpg)
 - для vite rollup-plugin-visualizer: 1.15 Mb, время: 7.3s
+  ![Скриншот сборки vite](./time_build_vite.jpg)
 
 ### Применение React 19 Hooks
 
