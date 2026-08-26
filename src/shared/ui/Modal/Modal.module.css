@@ -19,6 +19,7 @@
 }
 
 .myModal__container {
+	max-width: 800px;
 	position: relative;
 	padding: 24px 32px;
 	overflow: hidden;
