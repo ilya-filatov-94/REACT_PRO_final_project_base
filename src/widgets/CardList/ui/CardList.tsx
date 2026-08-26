@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { Card } from 'widgets/Card';
 import s from './CardList.module.css';
 
@@ -6,7 +7,7 @@ type CardListProps = {
 	products: Product[];
 };
 
-export const CardList = ({ title, products }: CardListProps) => {
+export const CardList = memo(({ title, products }: CardListProps) => {
 	if (!products.length) {
 		return <h1 className='header-title'>Товар не найден</h1>;
 	}
@@ -18,9 +19,11 @@ export const CardList = ({ title, products }: CardListProps) => {
 			</div>
 			<div className={s['card-list__items']}>
 				{products.map((product) => (
-					<Card key={product.id} product={product} />
+					<Card key={`${product.name}-${product.id}`} product={product} />
 				))}
 			</div>
 		</div>
 	);
-};
+});
+
+CardList.displayName = 'CardList'; // для ESLint

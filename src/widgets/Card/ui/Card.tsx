@@ -14,8 +14,9 @@ type CardProps = {
 
 export const Card = memo(({ product }: CardProps) => {
 	const { discount, price, name, tags, id, images } = product;
-	const cartProducts = useAppSelector(cartSelectors.getCartProducts);
-	const isProductInCart = cartProducts.some((p) => p.id === id);
+	const isProductInCart = useAppSelector((state) =>
+		cartSelectors.getCartProducts(state).some((p) => p.id === id)
+	);
 	const { addProductToCart } = useAddToCart();
 
 	return (

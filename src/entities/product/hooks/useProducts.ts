@@ -14,12 +14,18 @@ export const useProducts = () => {
 	);
 
 	const isFavoritesPage = pathname === '/favorites';
-	const { isLoading, isError, error, data, isFetching } = useGetProductsQuery({
-		searchText,
-		sort,
-		page,
-		perPage: isFavoritesPage ? undefined : perPage,
-	});
+
+	const queryArgs = useMemo(
+		() => ({
+			searchText,
+			sort,
+			page,
+			perPage: isFavoritesPage ? undefined : perPage,
+		}),
+		[searchText, sort, page, isFavoritesPage, perPage]
+	);
+	const { isLoading, isError, error, data, isFetching } =
+		useGetProductsQuery(queryArgs);
 
 	const user = useAppSelector(userSelectors.getUser);
 
@@ -33,10 +39,7 @@ export const useProducts = () => {
 		return data.products;
 	}, [data?.products, isFavoritesPage, user?.id]);
 
-	const productsCount = useMemo(
-		() => data?.products?.length ?? 0,
-		[data?.products]
-	);
+	const productsCount = data?.products?.length ?? 0;
 
 	return {
 		products: filteredProducts,
