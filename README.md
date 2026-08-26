@@ -28,7 +28,7 @@
 
 ### React.Portal для модалок
 
-- [x] В public/index.html добавлен <div id="modal-root"></div>
+- [x] В public/index.html добавлен div с id="modal-root"
 - [x] Реализован компонент Modal в src/shared/ui/Modal через ReactDOM.createPortal
 - [x] Закрытие модального окна через клик по иконке крестика, клику вне области модалки и нажатие на клавишу ESC корректно обрабатываются
 - [x] Фокус обрабатывается корректно:
