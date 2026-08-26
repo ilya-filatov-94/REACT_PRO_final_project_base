@@ -55,7 +55,7 @@ input:focus {
 
 .form__row {
 	display: flex;
-	gap: 12px;
+	gap: 20px;
 	width: 100%;
 }
 
@@ -91,7 +91,7 @@ input:focus {
 	cursor: pointer;
 }
 
-.form__btn.pramary {
+.form__btn.primary {
 	background: #ffe44d;
 	border: none;
 }

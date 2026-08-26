@@ -5,6 +5,9 @@ const path = require('path'); //для того чтобы превратить 
 const webpack = require('webpack');
 require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
+const BundleAnalyzerPlugin =
+	require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const production = process.env.NODE_ENV === 'production';
 
 module.exports = {
@@ -46,8 +49,14 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/i,
+				type: 'asset',
+				resourceQuery: /url/,
+			},
+			{
+				test: /\.svg$/i,
 				issuer: /\.[jt]sx?$/,
-				use: ['@svgr/webpack', 'url-loader'],
+				resourceQuery: { not: [/url/] },
+				use: ['@svgr/webpack'],
 			},
 			{
 				test: /\.css$/,
@@ -76,6 +85,7 @@ module.exports = {
 		new HTMLWebpackPlugins({
 			template: path.resolve(__dirname, '..', './public/index.html'),
 		}),
+		new BundleAnalyzerPlugin(),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: production

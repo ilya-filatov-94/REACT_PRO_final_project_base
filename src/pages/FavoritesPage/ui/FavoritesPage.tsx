@@ -1,12 +1,11 @@
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { WithQuery } from '../../../shared/store/HOCs/WithQuery';
-import { useProducts } from '../../../shared/store/hooks/useProducts';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { CardList } from '../../../widgets/CardList';
+import { CardList } from 'widgets/CardList';
+import { useProducts } from 'entities/product';
+import { WithQuery } from 'shared/api/HOCs/WithQuery';
+import { ButtonBack } from 'shared/ui/ButtonBack';
 
 const CardListWithQuery = WithQuery(CardList);
 
-export const FavoritesPage = WithProtection(() => {
+export const FavoritesPage = () => {
 	const { isLoading, isError, products, error } = useProducts();
 
 	return (
@@ -22,4 +21,4 @@ export const FavoritesPage = WithProtection(() => {
 			/>
 		</>
 	);
-});
+};

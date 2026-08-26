@@ -1,10 +1,11 @@
-import { ReactComponent as Star } from '../../../assets/icons/star.svg';
+import Star from '../../../assets/icons/star.svg?react';
 
 type TRating = {
 	rating?: number;
 	isEdit?: boolean;
 	onChange?: (rating: number) => void;
 };
+
 export const Rating = ({ rating = 0, isEdit = false, onChange }: TRating) => {
 	return (
 		<div>

@@ -1,13 +1,21 @@
-.root {
-	display: block;
+.app {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
 
-.root__image {
-	max-width: 200px;
-	max-height: 200px;
+.header {
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: #fff;
 }
 
-.root__icon {
-	max-width: 150px;
-	max-height: 150px;
+.main {
+	flex: 1 0 auto;
+	padding: 0 30px;
+}
+
+.footer {
+	flex-shrink: 0;
 }

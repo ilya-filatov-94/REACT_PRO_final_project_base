@@ -1,93 +1,41 @@
-import s from './ProfilePage.module.css';
-import classNames from 'classnames';
-import { ButtonBack } from '../../../shared/ui/ButtonBack';
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
+import { Alert, CircularProgress } from '@mui/material';
+import { useGetUserQuery } from 'entities/user';
+import { ProfileForm } from 'features/ProfileForm';
+import { ButtonBack } from 'shared/ui/ButtonBack';
+import { Button } from 'shared/ui/Button';
+import { getMessageFromError } from 'shared/utils';
 
-export const ProfilePage = WithProtection(() => {
+export const ProfilePage = () => {
+	const {
+		data: userData,
+		isLoading,
+		isError,
+		error,
+		refetch,
+	} = useGetUserQuery();
+
+	if (isLoading) {
+		return <CircularProgress />;
+	}
+
+	if (isError) {
+		return (
+			<Alert
+				severity='error'
+				action={<Button onClick={refetch}>Обновить форму</Button>}>
+				{getMessageFromError(error, 'Не удалось загрузить данные пользователя')}
+			</Alert>
+		);
+	}
+
+	if (!userData) {
+		return <div>Данные пользователя отсутствуют</div>;
+	}
+
 	return (
 		<>
 			<ButtonBack />
-			<h1 className={s['form__title']}>Мои данные</h1>
-			<form className={classNames(s['form'], s['form'])}>
-				<div className={s['form__row']}>
-					<label className={s['form__label']} htmlFor='name'>
-						{''}
-						<input
-							className={s['input']}
-							name='name'
-							id='name'
-							type='text'
-							placeholder='Введите ваше имя'
-						/>
-					</label>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='about'
-							id='about'
-							type='text'
-							placeholder='Описание профессии'
-						/>
-					</label>
-				</div>
-				<div className={s['form__row']}>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='avatar'
-							id='avatar'
-							type='url'
-							placeholder='Введите ссылку на аватарку'
-						/>
-					</label>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='email'
-							id='email'
-							type='text'
-							placeholder='email'
-						/>
-					</label>
-				</div>
-
-				<button
-					type='submit'
-					className={classNames(
-						s['form__btn'],
-						s['secondary'],
-						s['maxContent']
-					)}>
-					Сохранить
-				</button>
-			</form>
-			<h2 className={s['form__title']}>Изменить пароль</h2>
-			<form className={classNames(s['form'], s['form'])}>
-				<div className={classNames(s['form__row'], s['form__row_min'])}>
-					<label className={s['form__label']}>
-						{''}
-						<input
-							className={s['input']}
-							name='password'
-							id='password'
-							type='password'
-							placeholder='Пароль'
-						/>
-					</label>
-				</div>
-				<button
-					type='submit'
-					className={classNames(
-						s['form__btn'],
-						s['secondary'],
-						s['maxContent']
-					)}>
-					Сохранить
-				</button>
-			</form>
+			<ProfileForm user={userData} />
 		</>
 	);
-});
+};

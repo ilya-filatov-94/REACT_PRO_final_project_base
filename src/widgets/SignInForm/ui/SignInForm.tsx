@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { type FC, useEffect, useRef } from 'react';
 import {
 	Avatar,
 	Box,
@@ -10,16 +10,16 @@ import {
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import LoadingButton from '@mui/lab/LoadingButton';
 import { toast } from 'react-toastify';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
+import { LoadingButton } from 'shared/ui/LoadingButton';
 
 import { useDispatch } from 'react-redux';
+import { useSignInMutation } from 'features/Auth';
+import { userActions } from 'entities/user';
+import { getMessageFromError } from 'shared/utils';
 import { SignInFormValues } from '../utils/types';
 import { signInFormSchema } from '../utils/validator';
-import { useSignInMutation } from '../../../shared/store/api/authApi';
-import { userActions } from '../../../shared/store/slices/user';
-import { getMessageFromError } from '../../../shared/utils';
 
 export const SignInForm: FC = () => {
 	const dispatch = useDispatch();
@@ -45,6 +45,13 @@ export const SignInForm: FC = () => {
 		// валидации, мы используем yup
 		resolver: yupResolver(signInFormSchema),
 	});
+	const emailInputRef = useRef<HTMLInputElement>(null);
+
+	useEffect(() => {
+		if (emailInputRef.current) {
+			emailInputRef.current.focus();
+		}
+	}, []);
 
 	const submitHandler: SubmitHandler<SignInFormValues> = async (values) => {
 		try {
@@ -107,6 +114,7 @@ export const SignInForm: FC = () => {
 						control={control}
 						render={({ field }) => (
 							<TextField
+								inputRef={emailInputRef}
 								margin='normal'
 								label='Email Address'
 								type='email'

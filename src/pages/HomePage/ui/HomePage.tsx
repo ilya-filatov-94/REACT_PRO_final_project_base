@@ -1,16 +1,17 @@
-import { WithProtection } from '../../../shared/store/HOCs/WithProtection';
-import { WithQuery } from '../../../shared/store/HOCs/WithQuery';
-import { LoadMore } from '../../../shared/ui/LoadMore';
-import { CardList } from '../../../widgets/CardList';
-import { useProducts } from '../../../shared/store/hooks/useProducts';
+import { CardList } from 'widgets/CardList';
+import { Sort } from 'features/Sort';
+import { LoadMore } from 'features/LoadMore';
+import { useProducts } from 'entities/product';
+import { WithQuery } from 'shared/api/HOCs/WithQuery';
 
 const CardListWithQuery = WithQuery(CardList);
 
-export const HomePage = WithProtection(() => {
+export const HomePage = () => {
 	const { products, isLoading, isError, error } = useProducts();
 
 	return (
 		<>
+			<Sort />
 			<CardListWithQuery
 				title='Лакомства'
 				isLoading={isLoading}
@@ -21,4 +22,4 @@ export const HomePage = WithProtection(() => {
 			<LoadMore />
 		</>
 	);
-});
+};

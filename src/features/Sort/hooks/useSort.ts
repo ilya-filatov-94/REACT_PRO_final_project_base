@@ -1,0 +1,43 @@
+import { useAppDispatch, useAppSelector } from 'shared/store/utils';
+import { productsActions, productsSelectors } from 'entities/product';
+
+interface SortParams {
+	title: string;
+	value: Sort;
+	href: string;
+}
+
+const SORT_PARAMS: SortParams[] = [
+	{
+		title: 'Дешевые',
+		value: 'low-price',
+		href: '#',
+	},
+	{
+		title: 'Дорогие',
+		value: 'high-price',
+		href: '#',
+	},
+	{
+		title: 'Новые',
+		value: 'newest',
+		href: '#',
+	},
+	{
+		title: 'Старые',
+		value: 'oldest',
+		href: '#',
+	},
+];
+
+export const useSort = () => {
+	const dispatch = useAppDispatch();
+
+	const sort = useAppSelector(productsSelectors.getSort);
+
+	const setSort = (newSort: Sort) => {
+		dispatch(productsActions.setSort(newSort));
+	};
+
+	return { sort, setSort, sortParams: SORT_PARAMS };
+};
